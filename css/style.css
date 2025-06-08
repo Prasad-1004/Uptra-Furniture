@@ -725,6 +725,11 @@
 @media screen and (max-width: 425px) {
   /* Banner Section */
 
+  .content {
+  
+  top: 250px;
+}
+
   .banner-section {
     min-height: 90vh;
   }
