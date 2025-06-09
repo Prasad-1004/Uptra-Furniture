@@ -128,17 +128,17 @@
 /* Banner Section */
 
 .banner-section {
-  min-height: 70vh;
+  min-height: 90vh;
   position: relative;
 }
 
-.swiper {
+.banner-section .swiper {
   width: 100%;
-  height: 70vh;
+  height: calc(100vh - 110px);
   position: relative;
 }
 
-.swiper-slide {
+.bannerSwiper .swiper-slide {
   padding-left: 50px;
   color: white;
   border-radius: 12px;
@@ -159,7 +159,7 @@
   min-height: 282px;
 
   border-radius: 12px;
-  margin-left: 66px;
+  margin-left: 120px;
   position: relative;
   top: 50%;
 
@@ -319,10 +319,9 @@
 /* Join Us Section */
 
 .services-section {
-  max-width: 1200px;
-  margin: auto;
   padding: 40px 20px;
   text-align: center;
+  position: relative;
 }
 
 .subheading {
@@ -338,12 +337,13 @@
   margin-bottom: 30px;
 }
 
-.swiper {
+.mySwiper {
+  width: 80%;
   padding: 40px 0;
   position: relative;
 }
 
-.swiper-slide {
+.mySwiper .swiper-slide {
   display: flex;
   justify-content: center;
 }
@@ -403,18 +403,29 @@
   border: none;
   border-radius: 25px;
   background-color: #3d503a;
-  /* color: #fff; */
+  color: #fff;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.mySwiper .swiper-button-next,
-.mySwiper .swiper-button-prev {
-  background: rgba(0, 0, 0, 0.1);
+.services-section .swiper-button-next,
+.services-section .swiper-button-prev {
+  background: rgba(23, 22, 22, 0.1);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   box-shadow: 0 5px 10px rgba(19, 17, 17, 0.3);
+  z-index: 99;
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.services-section .container-fluid .swiper-button-next {
+}
+
+.services-section .swiper-button-prev {
 }
 
 .mySwiper .swiper-button-next::after,
@@ -428,12 +439,6 @@
 /* Streamline Section */
 
 .streamline-section {
-  /* padding-block: 40px;
-  
-  color: #ffffff;
-  margin-block: 30px;
-  
-   */
 }
 
 .streamline-section {
@@ -614,10 +619,10 @@
   .heading {
   }
 
-  .mySwiper .swiper-button-next,
+  /* .mySwiper .swiper-button-next,
   .mySwiper .swiper-button-prev {
     top: 400px;
-  }
+  } */
 }
 
 @media screen and (max-width: 1324px) {
@@ -632,14 +637,54 @@
 
   .hamberger {
     display: block;
-    font-size: 2rem;
     color: #33432f;
+    font-size: 2rem;
   }
+  
 
   .nav-links,
   .nav-buttons {
     display: none;
   }
+
+  .nav-links.active,
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    color: #3d503a;
+    background-color: rgb(247, 246, 246);
+    width: 100%;
+    padding: 20px 0 100px;
+    /* display: none; */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .nav-buttons.active {
+    position: absolute;
+    /* top: 425px; */
+    margin: auto;
+    text-align: center;
+  }
+
+  
+
+  .nav-links,
+  .nav-buttons {
+    display: none;
+  }
+
+
+
+
+
 
   /* Banner Section */
 
@@ -691,22 +736,22 @@
     margin-bottom: 25px;
   }
 
-  .swiper {
+  .bannerSwiper {
     height: 80vh;
   }
 
-  .swiper-slide {
+  .bannerSwiper .swiper-slide {
     padding: 0 15px !important;
 
     padding-left: 0px;
   }
 
-  .swiper-button-prev {
+  .bannerSwiper .swiper-button-prev {
     top: 95% !important;
     transform: translateY(-95%) !important;
   }
 
-  .swiper-button-next {
+  .bannerSwiper .swiper-button-next {
     top: 95% !important;
     transform: translateY(-95%) !important;
   }
@@ -732,7 +777,23 @@
 
   /* Join us Section */
 
-  
+  .services-section h2 {
+    font-size: 30px;
+  }
+
+  .services-section .swiper-button-next,
+  .services-section .swiper-button-prev {
+    background: rgba(23, 22, 22, 0.1);
+    border-radius: 50%;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 5px 10px rgba(19, 17, 17, 0.3);
+    z-index: 99;
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   /* Streamline Section */
 
@@ -777,16 +838,16 @@
     min-height: 90vh;
   }
 
-  .swiper {
+  /* .swiper {
     height: 90vh;
-  }
+  } */
 
-  .swiper-button-prev {
+  .bannerSwiper.swiper-button-prev {
     top: 100% !important;
     transform: translateY(-100%) !important;
   }
 
-  .swiper-button-next {
+  .bannerSwiper .swiper-button-next {
     top: 100% !important;
     transform: translateY(-100%) !important;
   }
@@ -797,11 +858,10 @@
     padding-block: 30px;
   }
 
-
-  .mySwiper .swiper-button-next,
+  /* .mySwiper .swiper-button-next,
   .mySwiper .swiper-button-prev {
     top: 100px;
-  }
+  } */
 
   /* Steamline Section */
 
